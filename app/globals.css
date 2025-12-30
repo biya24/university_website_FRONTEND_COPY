@@ -1,0 +1,213 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+/* ================= ENGLISH (DEFAULT) ================= */
+:root {
+  --font-en: system-ui, -apple-system, BlinkMacSystemFont,
+             "Segoe UI", Roboto, Ubuntu, Cantarell,
+             "Noto Sans", Arial, sans-serif;
+}
+
+/* ================= MALAYALAM FONT ================= */
+@font-face {
+  font-family: "Mandaram";
+  src: url("/fonts/Mandaram-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-family: var(--font-en);
+}
+
+/* styles/globals.css */
+/* High Contrast Mode */
+.high-contrast {
+  filter: contrast(1.4);
+  background: #000 !important;
+  color: #fff !important;
+}
+
+.high-contrast * {
+  background: #000 !important;
+  color: #fff !important;
+  border-color: #fff !important;
+}
+
+.high-contrast a {
+  color: #ffff00 !important;
+  text-decoration: underline !important;
+}
+
+/* Dark Mode */
+.dark-mode {
+  background: #121212 !important;
+  color: #e0e0e0 !important;
+}
+
+.dark-mode * {
+  background: #121212 !important;
+  color: #e0e0e0 !important;
+  border-color: #333 !important;
+}
+
+/* Big Cursor */
+.big-cursor * {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="%23000" opacity="0.5"/></svg>') 16 16, auto !important;
+}
+
+/* Smooth transitions */
+* {
+  transition: background-color 0.3s ease, 
+              color 0.3s ease, 
+              border-color 0.3s ease,
+              filter 0.3s ease;
+}
+
+
+
+/* Scoped: only affects this Drupal body block */
+.prose .ssus-legal-page{
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.prose .ssus-legal-hero{
+  padding: 20px 20px;
+  border: 1px solid #e6e8f0;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(113,31,69,.08), rgba(0,0,0,.03));
+  margin-bottom: 18px;
+}
+
+.prose .ssus-legal-badge{
+  display:inline-block;
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.6px;
+  text-transform:uppercase;
+  color:#fff;
+  background: linear-gradient(to right, #000000, #711F45);
+}
+
+.prose .ssus-legal-title{
+  margin: 10px 0 6px;
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.prose .ssus-legal-subtitle{
+  margin: 0;
+  color: #556070;
+}
+
+.prose .ssus-legal-grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 900px){
+  .prose .ssus-legal-grid{ grid-template-columns: 1fr 1fr; }
+}
+
+.prose .ssus-legal-card{
+  border: 1px solid #e6e8f0;
+  border-radius: 18px;
+  background: #fff;
+  padding: 16px;
+  box-shadow: 0 10px 26px rgba(15,23,42,.06);
+}
+
+.prose .ssus-legal-card-head{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:flex-start;
+}
+
+.prose .ssus-legal-tag{
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid #e6e8f0;
+  font-size: 12px;
+  font-weight: 800;
+  color: #556070;
+  white-space: nowrap;
+}
+
+.prose .ssus-legal-meta{
+  font-size: 14px;
+  color: #556070;
+  margin-top: 8px;
+}
+
+.prose .ssus-legal-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top: 12px;
+}
+
+.prose .ssus-legal-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 800;
+  text-decoration: none;
+  border: 1px solid rgba(11,95,255,.25);
+}
+
+.prose .ssus-legal-btn.primary{
+  background: #0b5fff;
+  color: #fff;
+}
+.prose .ssus-legal-btn.primary:hover{ background:#0847c7; }
+
+.prose .ssus-legal-btn.secondary{
+  background: #fff;
+  color: #0b5fff;
+}
+.prose .ssus-legal-btn.secondary:hover{ background: rgba(11,95,255,.06); }
+
+.prose .ssus-legal-note{
+  margin-top: 12px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #fff7e6;
+  border: 1px solid #ffe0a3;
+}
+.prose .ssus-legal-note strong{ display:block; margin-bottom:4px; }
+
+/*ddd*/ 
+
