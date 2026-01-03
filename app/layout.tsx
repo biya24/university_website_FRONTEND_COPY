@@ -1,5 +1,6 @@
 // app/layout.tsx
 import "./globals.css";
+import "./animations.css";
 import Header from "./components/Header";
 import NotificationBar from "./components/NotificationBar";
 import UniversityFooter from "./components/Footer";

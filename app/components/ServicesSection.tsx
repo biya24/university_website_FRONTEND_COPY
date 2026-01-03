@@ -17,7 +17,7 @@ const services = [
   },
   {
     title: "Certificate Portal",
-    desc: "Download & verify certificates",
+    desc: "Apply, Download & verify certificates",
     icon: "/icons/services/certificate.svg",
     href: "https://certificate.ssus.ac.in/",
   },

@@ -4,9 +4,19 @@ import { motion } from "framer-motion";
 export default function HeroBanner() {
   return (
     <section
-      className="relative bg-[#013E7F] text-white h-[700px] overflow-hidden bg-cover bg-center"
-      style={{ backgroundImage: "url('/images/SSUS.jpg')" }}
-    >
+  className="
+    relative
+    bg-[#013E7F]
+    text-white
+    h-[420px]
+    md:h-[700px]
+    overflow-hidden
+    bg-cover
+    bg-top
+    md:bg-center
+  "
+  style={{ backgroundImage: "url('/images/SSUS.jpg')" }}
+>
       <div className="absolute inset-0 bg-black opacity-20 z-0"></div>
 
       <div className="absolute bottom-10 left-10 max-w-xl z-10 text-left">
