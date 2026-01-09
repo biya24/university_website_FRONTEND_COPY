@@ -14,6 +14,10 @@ interface NewsItem {
   url: string; // FULL URL from API
 }
 
+// Utility: detect Malayalam characters
+const isMalayalam = (text: string) => /[\u0D00-\u0D7F]/.test(text);
+
+
 /* ================= COMPONENT ================= */
 
 export default function CampusNews() {
@@ -58,7 +62,7 @@ export default function CampusNews() {
             const imageUrl =
               item.image && item.image.trim() !== ""
                 ? `https://departments.ssus.ac.in/storage/${item.image}`
-                : "/images/SSUS.jpg";
+                : "/images/no_image.png";
 
             const formattedDate = new Date(
               item.published_at
@@ -117,8 +121,8 @@ function NewsCard({
       </a>
 
       {/* CONTENT */}
-      <div className="p-5 flex flex-col justify-between flex-1">
-        <h3 className="text-lg font-medium text-gray-800 leading-snug line-clamp-2">
+      <div lang={isMalayalam(title) ? "ml" : "en"} className="p-5 flex flex-col justify-between flex-1">
+        <h3 lang={isMalayalam(title) ? "ml" : "en"} className="text-lg font-medium text-gray-800 leading-snug line-clamp-2">
           {title}
         </h3>
 

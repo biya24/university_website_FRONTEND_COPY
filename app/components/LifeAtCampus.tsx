@@ -26,6 +26,7 @@ export default function LifeAtCampus() {
 
           <CampusCard
             image="/images/clubs.webp"
+            
             title="Clubs and activities"
             icon="/icons/clubs.svg"
             href="/clubs-and-activities"

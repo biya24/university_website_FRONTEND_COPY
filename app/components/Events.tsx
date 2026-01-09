@@ -181,7 +181,7 @@ export default function CampusEvents() {
         {event.category}
       </span>
 
-      <h3 className="absolute top-14 left-4 right-4 text-white text-[22px] font-semibold leading-snug z-10">
+      <h3 className="absolute top-14 left-4 right-4 text-white text-[20px] font-semibold leading-snug z-10">
         {event.title}
       </h3>
 

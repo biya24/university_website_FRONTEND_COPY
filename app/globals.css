@@ -30,21 +30,37 @@
 }
 
 /* ================= MALAYALAM FONT ================= */
-@font-face {
+/* @font-face {
   font-family: "Mandaram";
   src: url("/fonts/Mandaram-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
+} */
+
+:lang(ml) {
+  font-family: "Mandaram", "Noto Sans Malayalam", sans-serif;
 }
 
+@font-face {
+  font-family: "Mandaram";
+  src: url("/fonts/Mandaram-Regular.ttf") format("truetype");
+  font-display: swap;
+  unicode-range: U+0D00-0D7F;
+}
 
 body {
   background: var(--background);
   color: var(--foreground);
-  /* font-family: Arial, Helvetica, sans-serif; */
-  font-family: var(--font-en);
+  font-family: var(--font-en), "Mandaram", sans-serif;
 }
+
+html[lang="ml"] body {
+  font-family: "Mandaram", "Noto Sans Malayalam", sans-serif;
+}
+
+
+
 
 /* styles/globals.css */
 /* High Contrast Mode */

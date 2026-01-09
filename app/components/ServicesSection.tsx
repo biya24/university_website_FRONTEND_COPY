@@ -4,64 +4,10 @@ import Image from "next/image";
 
 const services = [
   {
-    title: "Students Portal",
-    desc: "Access courses, grades & schedule",
-    icon: "/icons/services/student.svg",
-    href: "student-fyugp/fyugp-stud-login",
-  },
-  {
-    title: "Department / Centre Login",
-    desc: "Department management system",
-    icon: "/icons/services/department.svg",
-    href: "https://dept.ssus.ac.in/",
-  },
-  {
-    title: "Certificate Portal",
-    desc: "Apply, Download & verify certificates",
-    icon: "/icons/services/certificate.svg",
-    href: "https://certificate.ssus.ac.in/",
-  },
-  {
-    title: "Online Learning",
-    desc: "E-learning courses & materials",
-    icon: "/icons/services/online-learning.svg",
-    href: "/academics/scol",
-  },
-  {
-    title: "LMS",
-    desc: "Learning Management System",
-    icon: "/icons/services/lms.svg",
-    href: "https://lms.ssus.ac.in/",
-  },
-  {
-    title: "FMTS",
-    desc: "File Management & Tracking",
-    icon: "/icons/services/fmts.svg",
-    href: "https://fmts.ssus.ac.in",
-  },
-  {
-    title: "Faculty Profile",
-    desc: "Manage faculty information",
-    icon: "/icons/services/faculty.svg",
-    href: "https://faculty.ssus.ac.in/",
-  },
-  {
     title: "Admission",
     desc: "Apply & track applications",
     icon: "/icons/services/admission.svg",
     href: "/admission",
-  },
-  {
-    title: "Library",
-    desc: "Digital library resources",
-    icon: "/icons/services/library.svg",
-    href: "https://library.ssus.ac.in/",
-  },
-  {
-    title: "Alumni",
-    desc: "Connect with alumni network",
-    icon: "/icons/services/alumni.svg",
-    href: "/alumni",
   },
   {
     title: "Programmes",
@@ -76,10 +22,46 @@ const services = [
     href: "/academics/departments",
   },
   {
-    title: "Press Release",
-    desc: "Latest news & announcements",
-    icon: "/icons/services/press.svg",
-    href: "https://departments.ssus.ac.in/ssus/news",
+    title: "Students Portal",
+    desc: "Access courses, grades & schedule",
+    icon: "/icons/services/student.svg",
+    href: "student-fyugp/fyugp-stud-login",
+  },
+  {
+    title: "Certificate Portal",
+    desc: "Apply, Download & verify certificates",
+    icon: "/icons/services/certificate.svg",
+    href: "https://certificate.ssus.ac.in/",
+  },
+  {
+    title: "Library",
+    desc: "Digital library resources",
+    icon: "/icons/services/library.svg",
+    href: "https://library.ssus.ac.in/",
+  },
+  {
+    title: "Online Learning",
+    desc: "E-learning courses & materials",
+    icon: "/icons/services/online-learning.svg",
+    href: "/academics/scol",
+  },
+  {
+    title: "LMS",
+    desc: "Learning Management System",
+    icon: "/icons/services/lms.svg",
+    href: "https://lms.ssus.ac.in/",
+  },
+  {
+    title: "Faculty Profile",
+    desc: "Manage faculty information",
+    icon: "/icons/services/faculty.svg",
+    href: "https://faculty.ssus.ac.in/",
+  },
+  {
+    title: "Department / Centre Login",
+    desc: "Department management system",
+    icon: "/icons/services/department.svg",
+    href: "https://dept.ssus.ac.in/",
   },
   {
     title: "IQAC",
@@ -88,11 +70,39 @@ const services = [
     href: "/iqac",
   },
   {
+    title: "Alumni",
+    desc: "Connect with alumni network",
+    icon: "/icons/services/alumni.svg",
+    href: "/alumni",
+  },
+  {
+    title: "Press Release",
+    desc: "Latest news & announcements",
+    icon: "/icons/services/press.svg",
+    href: "https://departments.ssus.ac.in/ssus/news",
+  },
+    
+  {
+    title: "FMTS",
+    desc: "File Management & Tracking",
+    icon: "/icons/services/fmts.svg",
+    href: "https://fmts.ssus.ac.in",
+  },
+  {
     title: "RTI",
     desc: "Right to Information",
     icon: "/icons/services/rti.svg",
     href: "https://fmts.ssus.ac.in/rti",
   },
+  
+  
+ 
+  
+  
+  
+  
+ 
+ 
 ];
 
 
@@ -100,7 +110,7 @@ export default function ServicesSection() {
   return (
     <section className="w-full bg-white py-24">
       <h2 className="text-center text-4xl md:text-5xl font-bold mb-16 text-[#3D0F29]">
-        Explore Our Service
+        Quick Links
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 md:px-24">

@@ -11,6 +11,7 @@ import {
   FaGlobe,
   FaShareAlt
 } from 'react-icons/fa';
+import { FaXTwitter } from "react-icons/fa6";
 
 const SocialMediaGlobe = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +20,12 @@ const SocialMediaGlobe = () => {
 
   const socialLinks = [
     { icon: <FaFacebookF />, url: '#', label: 'Facebook', color: 'hover:bg-[#1877F2]' },
-    { icon: <FaTwitter />, url: '#', label: 'Twitter', color: 'hover:bg-[#1DA1F2]' },
+    {
+      icon: <FaXTwitter />,
+      url: "#",
+      label: "X",
+      color: "hover:bg-black"
+    },
     { icon: <FaInstagram />, url: '#', label: 'Instagram', color: 'hover:bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#FCAF45]' },
     { icon: <FaLinkedinIn />, url: '#', label: 'LinkedIn', color: 'hover:bg-[#0077B5]' },
     { icon: <FaYoutube />, url: '#', label: 'YouTube', color: 'hover:bg-[#FF0000]' },

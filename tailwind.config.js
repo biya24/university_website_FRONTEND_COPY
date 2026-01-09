@@ -15,6 +15,9 @@ module.exports = {
         animation: {
           scroll: "scroll 35s linear infinite",
         },
+        fontFamily: {
+          malayalam: ["var(--font-malayalam)", "Mandharam", "Noto Sans Malayalam", "sans-serif"],
+        },
       },
     },
   };

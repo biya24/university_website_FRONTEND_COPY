@@ -47,7 +47,7 @@ export default function UniversityHeader() {
     isSearching,
   } = useSearch();
 
-  const NAAC_URL = "/naac";
+  const NAAC_URL = "/admission";
   const TOUR_URL = "/virtual-tour";
 
 
@@ -90,7 +90,7 @@ export default function UniversityHeader() {
       <div className="w-full bg-white h-24 border-b shadow-sm px-10 flex items-center justify-between hidden md:flex">
         <Link href="/">
           <Image
-            src="/logo.png"
+            src="/logo_new.png"
             alt="University Logo"
             width={500}
             height={70}
@@ -100,9 +100,9 @@ export default function UniversityHeader() {
         </Link>
 
           {/* NAAC STATUS TEXT */}
-          <span className="hidden lg:block text-sm text-gray-600 font-medium">
+          {/* <span className="hidden lg:block text-sm text-gray-600 font-medium">
             Re-accredited by NAAC with <span className="font-semibold text-[#6b174e]">A+ Grade</span>
-          </span>
+          </span> */}
        
 
 
@@ -116,15 +116,15 @@ export default function UniversityHeader() {
               href={NAAC_URL}
               className="px-4 py-2 border rounded-xl text-sm hover:bg-gray-100 transition"
             >
-              NAAC
+              ADMISSION
             </Link>
 
-            <Link
+            {/* <Link
               href={TOUR_URL}
               className="px-4 py-2 border rounded-xl text-sm hover:bg-gray-100 transition"
             >
               360° Virtual Tour
-            </Link>
+            </Link> */}
 
 
           <button onClick={() => setSearchOpen(true)}>
@@ -156,7 +156,7 @@ export default function UniversityHeader() {
 <div className="h-20 px-4 flex items-center justify-between">
   <Link href="/">
     <Image
-      src="/logo.png"
+      src="/logo_new.png"
       alt="Logo"
       width={250}
       height={70}
@@ -181,15 +181,15 @@ export default function UniversityHeader() {
   href={NAAC_URL}
   className="font-medium text-gray-700 hover:text-[#6b174e]"
 >
-  NAAC
+  ADMISSION
 </Link>
 
-<Link
+{/* <Link
   href={TOUR_URL}
   className="font-medium text-gray-700 hover:text-[#6b174e]"
 >
   360° Virtual Tour
-</Link>
+</Link> */}
 
 
   <button

@@ -7,21 +7,23 @@ import Link from "next/link";
 export default function ProgrammesSection() {
   const programmes = [
     {
-      title: "Under Graduate",
-      href: "/ug-programmes",
+      title: "PhD",
+      href: "/phd-programmes",
     },
     {
       title: "Post Graduate",
       href: "/pg-programmes",
     },
     {
+      title: "Under Graduate",
+      href: "/ug-programmes",
+    },
+   
+    {
       title: "Diploma",
       href: "/diploma-programmes",
     },
-    {
-      title: "PhD",
-      href: "/phd-programmes",
-    },
+    
     {
       title: "Certificate Programmes",
       href: "/certificate_programmes",
@@ -77,7 +79,8 @@ export default function ProgrammesSection() {
                         className="text-lg md:text-xl font-medium"
                         style={{ color: "#9CA3AF" }}
                       >
-                        {number}.
+                        {/* {number}. */}
+                        <span className="text-gray-400 text-[28px] leading-none mr-2">•</span>
                       </span>
 
                       {/* TITLE */}

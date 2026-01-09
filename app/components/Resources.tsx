@@ -4,37 +4,37 @@ import Link from "next/link";
 const facilities = [
   {
     title: "Research Labs",
-    image: "/facilities/research.jpg",
+    image: "/facilities/research.webp",
     icon: "/icons/lab.svg",
     href: "/research-labs",
   },
   {
     title: "IT Services",
-    image: "/facilities/it.jpg",
+    image: "/facilities/it.webp",
     icon: "/icons/it.svg",
     href: "/it-services",
   },
   {
     title: "Transportation",
-    image: "/facilities/transport.jpg",
+    image: "/facilities/transport.webp",
     icon: "/icons/transport.svg",
     href: "/transportation",
   },
   {
     title: "Hostels",
-    image: "/facilities/hostel.jpg",
+    image: "/facilities/hostel.webp",
     icon: "/icons/hostel.svg",
     href: "/hostels",
   },
   {
     title: "Sports",
-    image: "/facilities/sports.jpg",
+    image: "/facilities/sports.webp",
     icon: "/icons/sports.svg",
     href: "/sports",
   },
   {
     title: "Library",
-    image: "/facilities/library.jpg",
+    image: "/facilities/library.webp",
     icon: "/icons/library.svg",
     href: "/library",
   },

@@ -53,7 +53,7 @@ export default function AchievementsAwards() {
         {/* HEADER */}
         <div className="text-center">
           <h2 className="text-2xl md:text-[48px] font-bold text-[#3D0F29]">
-            Our Achievements & Awards
+           Achievements & Awards
           </h2>
           <p className="mt-3 md:mt-4 max-w-3xl mx-auto text-gray-600 text-sm md:text-lg px-2 md:px-0">
             Celebrating excellence in academics, research, innovation, and student success.

@@ -9,6 +9,7 @@ import SocialMediaGlobe from './components/SocialMediaIcons';
 import AccessibilityButton from "./components/AccessibilityButton"
 import { LanguageProvider } from "@/context/LanguageContext";
 import { SearchProvider } from "@/context/SearchContext";
+import HtmlLang from "./HtmlLang";
 
 
 export const metadata = {
@@ -24,6 +25,7 @@ export default function RootLayout({ children }) {
         {/* Use the Providers wrapper */}
         <Providers>
         <LanguageProvider>
+        <HtmlLang /> 
         <SearchProvider>
           {/* FIXED HEADER */}
           <header className="fixed top-0 left-0 w-full bg-white z-[2000] shadow-sm">

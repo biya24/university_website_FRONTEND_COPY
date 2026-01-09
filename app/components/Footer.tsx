@@ -11,8 +11,8 @@ type MenuItem = {
 type MenuMap = Record<string, MenuItem[]>;
 
 const MENU_CONFIG = [
-  { title: "QUICK LINKS", menuName: "footer-quicklinks" },
-  { title: "Useful Links", menuName: "footer-useful" },
+  { title: "Useful Links", menuName: "footer-quicklinks" },
+  { title: "Important Links", menuName: "footer-useful" },
   { title: "RESOURCES", menuName: "footer-resources" },
 ];
 

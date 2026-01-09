@@ -31,7 +31,7 @@ export default async function ExaminationNotificationPage() {
         </div>
       </section>
 
-      {/* CLIENT TABLE */}
+      {/* DATA TABLE */}
       <div className="mx-auto max-w-6xl px-6 py-10">
         <DataTableClient
           data={results}
@@ -39,7 +39,7 @@ export default async function ExaminationNotificationPage() {
           searchKeys={["title"]}
           pageSizeOptions={[10, 25, 50]}
           defaultPageSize={10}
-          dateKey="published_date"
+          dateFilterKeys={{ from: "published_date_formatted", to: "deadline_date_formatted" }}
         />
       </div>
     </main>

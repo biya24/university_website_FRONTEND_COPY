@@ -10,9 +10,9 @@ export default function AboutUsSection() {
           {/* TITLE BLOCK */}
           <p className="text-gray-500 text-lg mb-4">About Us</p>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight max-w-xl">
-            Empowering Future
-            <br /> Leaders Through World-
-            <br /> Class Education
+          A Centre for  
+            <br /> Classical Learning
+            <br /> and Cultural Excellence 
           </h2>
   
           {/* STATS CARDS */}
@@ -21,52 +21,52 @@ export default function AboutUsSection() {
             {/* CARD 1 — DARK */}
             <div className="bg-black text-white p-4 rounded-2xl shadow-lg">
               <h3 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 text-transparent bg-clip-text">
-                10K+
+                70+
               </h3>
   
               <div className="w-full h-[2px] mt-4 bg-gradient-to-r from-blue-400 to-purple-400" />
   
               <p className="mt-4 text-sm font-semibold tracking-wide">
-                ALUMNI
+                PROGRAMMES
               </p>
             </div>
   
             {/* CARD 2 */}
             <div className="bg-white p-8 rounded-2xl shadow-md">
               <h3 className="text-4xl md:text-5xl font-bold text-[#6b174e]">
-                10+
+                7
               </h3>
   
               <div className="w-full h-[2px] mt-4 bg-gradient-to-r from-blue-400 to-purple-400" />
   
               <p className="mt-4 text-sm font-semibold tracking-wide text-gray-600">
-                PROGRAMMES
+              CAMPUSES
               </p>
             </div>
   
             {/* CARD 3 */}
             <div className="bg-white p-8 rounded-2xl shadow-md">
               <h3 className="text-4xl md:text-5xl font-bold text-[#6b174e]">
-                50%
+                25K+
               </h3>
   
               <div className="w-full h-[2px] mt-4 bg-gradient-to-r from-blue-400 to-purple-400" />
   
               <p className="mt-4 text-sm font-semibold tracking-wide text-gray-600">
-                PLACEMENT RATE
+              ALUMNI
               </p>
             </div>
   
             {/* CARD 4 */}
             <div className="bg-white p-8 rounded-2xl shadow-md">
               <h3 className="text-4xl md:text-5xl font-bold text-[#6b174e]">
-                5+
+                3K+
               </h3>
   
               <div className="w-full h-[2px] mt-4 bg-gradient-to-r from-blue-400 to-purple-400" />
   
               <p className="mt-4 text-sm font-semibold tracking-wide text-gray-600">
-                CAMPUSES
+                STUDENTS
               </p>
             </div>
   

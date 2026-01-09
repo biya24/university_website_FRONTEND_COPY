@@ -30,23 +30,24 @@ export default function CampusSection() {
         {/* LEFT IMAGE */}
         <div className="relative rounded-2xl overflow-hidden md:row-span-2">
           <img
-            src="/campus/mck.jpg"
+            src="/campus/panmana.webp"
             alt="Kaladi Campus"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/30" />
           <div className="absolute bottom-6 left-6 text-white">
-            <h4 className="text-xl font-semibold">Kalady</h4>
-            <p className="text-sm">Kochi, Kerala</p>
+            <h4 className="text-xl font-semibold">Panamana</h4>
+            <p className="text-sm">Kollam, Kerala</p>
           </div>
         </div>
 
         {/* SECOND COLUMN */}
         <div className="flex flex-col gap-6 md:row-span-2">
           {/* BLACK CARD */}
-          <div className="bg-black text-white rounded-2xl p-8 flex flex-col justify-between h-[330px]">
+          <div className="bg-black text-white rounded-2xl p-2 flex flex-col justify-between h-[330px]">
           <img
-            src="/campus/payyannur.png"
+          
+            src="/campus/payyannur.webp"
             alt="Kaladi Campus"
             className="w-full h-full object-cover"
           />
@@ -63,7 +64,8 @@ export default function CampusSection() {
           {/* IMAGE */}
           <div className="relative rounded-2xl overflow-hidden h-[330px]">
             <img
-              src="/campus/ettumannoor.jpg"
+             src="/campus/payyannur.webp"
+              // src="/campus/ettumannoor.webp"
               alt="Kaladi Campus"
               className="w-full h-full object-cover"
             />
@@ -78,14 +80,14 @@ export default function CampusSection() {
         {/* RIGHT TOP IMAGE */}
         <div className="relative rounded-2xl overflow-hidden md:col-span-2">
           <img
-            src="/campus/panmana.png"
+            src="/campus/mck.webp"
             alt="Kaladi Campus Aerial"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/25" />
           <div className="absolute bottom-6 left-6 text-white">
-            <h4 className="text-xl font-semibold">Panmana</h4>
-            <p className="text-sm">Kollam, Kerala</p>
+            <h4 className="text-xl font-semibold">Kalady</h4>
+            <p className="text-sm">Kochi, Kerala</p>
           </div>
         </div>
 
