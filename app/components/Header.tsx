@@ -16,6 +16,7 @@ import {
 import { fetchMenu } from "@/lib/fetchMenu";
 import { useLanguage } from "@/context/LanguageContext";
 import { useSearch } from "@/context/SearchContext";
+import { useTranslation } from "@/i18n/useTranslation";
 
 interface MenuItem {
   id: string;
@@ -32,12 +33,14 @@ export default function UniversityHeader() {
   const [mobileOpen, setMobileOpen] = useState(false); // MOBILE
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
   const [activeCategory, setActiveCategory] = useState<string>("");
+ 
 
   // ✅ MOBILE STATES (FIXED)
   const [expandedMobile, setExpandedMobile] = useState<string | null>(null);
   const [expandedSubMobile, setExpandedSubMobile] = useState<Record<string, boolean>>({});
 
-  const { language, setLanguage } = useLanguage();
+  const { t, language } = useTranslation();
+  const { setLanguage } = useLanguage();
   const [searchOpen, setSearchOpen] = useState(false);
 
   const {
@@ -107,17 +110,50 @@ export default function UniversityHeader() {
 
 
         <div className="flex items-center gap-6">
-          <Phone className="text-[#6b174e]" size={22} />
-          <Mail className="text-[#6b174e]" size={22} />
+        <a
+  href="tel:+919876543210"
+  className="group relative inline-block"
+>
+  <Phone className="text-[#6b174e] cursor-pointer" size={22} />
+
+  <span
+    className="absolute -bottom-8 left-1/2 -translate-x-1/2
+               whitespace-nowrap rounded bg-black px-2 py-1
+               text-xs text-white opacity-0
+               group-hover:opacity-100 transition"
+  >
+    +91 98765 43210
+  </span>
+</a>
+
+<a
+  href="mailto:info@ssus.ac.in"
+  className="group relative inline-block"
+>
+  <Mail className="text-[#6b174e] cursor-pointer" size={22} />
+
+  <span
+    className="absolute -bottom-8 left-1/2 -translate-x-1/2
+               whitespace-nowrap rounded bg-black px-2 py-1
+               text-xs text-white opacity-0
+               group-hover:opacity-100 transition"
+  >
+    info@ssus.ac.in
+  </span>
+</a>
+
+
+
 
        
 
-            <Link
+          <Link
               href={NAAC_URL}
               className="px-4 py-2 border rounded-xl text-sm hover:bg-gray-100 transition"
             >
-              ADMISSION
+              {t.admission}
             </Link>
+
 
             {/* <Link
               href={TOUR_URL}
@@ -131,20 +167,44 @@ export default function UniversityHeader() {
             <Search size={20} />
           </button>
 
-          <button
+          {/* <button
             onClick={() => setLanguage(language === "en" ? "ml" : "en")}
             className="flex items-center gap-1"
           >
             {language === "en" ? "English" : "മലയാളം"}
             <ChevronDown size={14} />
-          </button>
+          </button> */}
+          <button
+              onClick={() => setLanguage(language === "en" ? "ml" : "en")}
+              className="flex items-center gap-1"
+            >
+              {t.language}
+              <ChevronDown size={14} />
+            </button>
+
 
           <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="px-4 py-2 border rounded-xl flex items-center gap-2"
+            >
+              {menuOpen ? (
+                <>
+                  {t.close} <X size={20} />
+                </>
+              ) : (
+                <>
+                  {t.menu} <MenuIcon size={22} />
+                </>
+              )}
+            </button>
+
+
+          {/* <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="px-4 py-2 border rounded-xl flex items-center gap-2"
           >
             {menuOpen ? <>Close <X size={20} /></> : <>Menu <MenuIcon size={22} /></>}
-          </button>
+          </button> */}
         </div>
       </div>
 
@@ -181,7 +241,7 @@ export default function UniversityHeader() {
   href={NAAC_URL}
   className="font-medium text-gray-700 hover:text-[#6b174e]"
 >
-  ADMISSION
+{t.admission}
 </Link>
 
 {/* <Link
@@ -192,13 +252,21 @@ export default function UniversityHeader() {
 </Link> */}
 
 
-  <button
+  {/* <button
     onClick={() => setLanguage(language === "en" ? "ml" : "en")}
     className="flex items-center gap-1 font-medium text-gray-700 hover:text-[#6b174e]"
   >
     {language === "en" ? "English" : "മലയാളം"}
     <ChevronDown size={14} />
-  </button>
+  </button> */}
+
+  <button
+              onClick={() => setLanguage(language === "en" ? "ml" : "en")}
+              className="flex items-center gap-1 text-gray-700 hover:text-[#6b174e]"
+            >
+              {t.language}
+              <ChevronDown size={14} />
+            </button>
 
   <button
     onClick={() => setSearchOpen(true)}
@@ -358,7 +426,7 @@ export default function UniversityHeader() {
         type="text"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        placeholder="Search..."
+        placeholder={t.searchPlaceholder}
         className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#6b174e]"
         autoFocus
       />
@@ -366,11 +434,11 @@ export default function UniversityHeader() {
       {/* RESULTS */}
       <div className="mt-4 max-h-80 overflow-y-auto">
         {isSearching && (
-          <p className="text-sm text-gray-500">Searching…</p>
+          <p className="text-sm text-gray-500">{t.searching}</p>
         )}
 
         {!isSearching && searchResults.length === 0 && searchQuery && (
-          <p className="text-sm text-gray-500">No results found</p>
+          <p className="text-sm text-gray-500">{t.noResults}</p>
         )}
 
         {searchResults.map((item: any) => (

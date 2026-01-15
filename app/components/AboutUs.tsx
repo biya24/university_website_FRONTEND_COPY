@@ -1,4 +1,12 @@
+"use client";
+
+import { useLanguage } from "@/context/LanguageContext";
+import { useSearch } from "@/context/SearchContext";
+import { useTranslation } from "@/i18n/useTranslation";
+
 export default function AboutUsSection() {
+  const { t, language } = useTranslation();
+  const { setLanguage } = useLanguage();
     return (
       <section className="w-full py-10 bg-[#f8f8f8] relative overflow-hidden">
   
@@ -8,11 +16,11 @@ export default function AboutUsSection() {
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           
           {/* TITLE BLOCK */}
-          <p className="text-gray-500 text-lg mb-4">About Us</p>
+          <p className="text-gray-500 text-lg mb-4">{t.about.aboutUs}</p>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight max-w-xl">
-          A Centre for  
-            <br /> Classical Learning
-            <br /> and Cultural Excellence 
+          {t.about.titleLine1} 
+            <br /> {t.about.titleLine2} 
+            <br /> {t.about.titleLine3}  
           </h2>
   
           {/* STATS CARDS */}
@@ -27,7 +35,7 @@ export default function AboutUsSection() {
               <div className="w-full h-[2px] mt-4 bg-gradient-to-r from-blue-400 to-purple-400" />
   
               <p className="mt-4 text-sm font-semibold tracking-wide">
-                PROGRAMMES
+              {t.about.programmes} 
               </p>
             </div>
   
@@ -40,7 +48,7 @@ export default function AboutUsSection() {
               <div className="w-full h-[2px] mt-4 bg-gradient-to-r from-blue-400 to-purple-400" />
   
               <p className="mt-4 text-sm font-semibold tracking-wide text-gray-600">
-              CAMPUSES
+              {t.about.campuses} 
               </p>
             </div>
   
@@ -53,7 +61,7 @@ export default function AboutUsSection() {
               <div className="w-full h-[2px] mt-4 bg-gradient-to-r from-blue-400 to-purple-400" />
   
               <p className="mt-4 text-sm font-semibold tracking-wide text-gray-600">
-              ALUMNI
+              {t.about.alumni} 
               </p>
             </div>
   
@@ -66,7 +74,7 @@ export default function AboutUsSection() {
               <div className="w-full h-[2px] mt-4 bg-gradient-to-r from-blue-400 to-purple-400" />
   
               <p className="mt-4 text-sm font-semibold tracking-wide text-gray-600">
-                STUDENTS
+              {t.about.students} 
               </p>
             </div>
   

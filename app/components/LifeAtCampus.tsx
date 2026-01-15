@@ -1,16 +1,32 @@
 "use client";
+
 import Link from "next/link";
+import { useTranslation } from "@/i18n/useTranslation";
 
 export default function LifeAtCampus() {
+  const { t } = useTranslation();
+
   return (
     <section className="bg-[#F5F6F7] py-24">
       {/* HEADING */}
       <div className="text-center max-w-[600px] mx-auto mb-16">
-        <h2 className="text-5xl font-semibold tracking-tight bg-gradient-to-b from-black to-[#711F45] bg-clip-text text-transparent">
-          Life at Campus
+      <h2 className="
+  text-5xl
+  font-semibold
+  tracking-tight
+  leading-tight
+  pt-1
+  bg-gradient-to-b
+  from-black
+  to-[#711F45]
+  bg-clip-text
+  text-transparent
+">
+
+          {t.lifeAtCampus.heading}
         </h2>
         <p className="mt-4 text-lg text-gray-600">
-          A place filled with ideas, energy, creativity, and community.
+          {t.lifeAtCampus.subtitle}
         </p>
       </div>
 
@@ -19,22 +35,21 @@ export default function LifeAtCampus() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <CampusCard
             image="/images/life-campus.webp"
-            title="Life at Campus"
+            title={t.lifeAtCampus.cards.life}
             icon="/icons/life.svg"
             href="/lifeatcampus"
           />
 
           <CampusCard
             image="/images/clubs.webp"
-            
-            title="Clubs and activities"
+            title={t.lifeAtCampus.cards.clubs}
             icon="/icons/clubs.svg"
             href="/clubs-and-activities"
           />
 
           <CampusCard
             image="/images/support.webp"
-            title="Student Support"
+            title={t.lifeAtCampus.cards.support}
             icon="/icons/support.svg"
             href="/student-support"
           />
@@ -60,7 +75,6 @@ function CampusCard({
   return (
     <Link href={href} className="group">
       <div className="relative h-[520px] rounded-xl overflow-hidden bg-white border-[8px] border-white">
-        
         {/* IMAGE */}
         <img
           src={image}
@@ -74,7 +88,6 @@ function CampusCard({
         {/* CONTENT */}
         <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
           <div className="flex flex-col gap-4">
-            
             {/* ICON */}
             <div className="w-12 h-12">
               <img src={icon} alt="" className="w-full h-full" />

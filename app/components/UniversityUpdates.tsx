@@ -7,6 +7,7 @@ import {
   ArrowLeft,
   ArrowRight,
 } from "lucide-react";
+import { useTranslation } from "@/i18n/useTranslation";
 
 /* ---------- TYPES ---------- */
 interface UniversityUpdate {
@@ -20,6 +21,7 @@ interface UniversityUpdate {
 /* ---------- COMPONENT ---------- */
 export default function UniversityUpdates() {
   const [updates, setUpdates] = useState<UniversityUpdate[]>([]);
+  const { t } = useTranslation();
 
   useEffect(() => {
     fetch(
@@ -41,7 +43,7 @@ export default function UniversityUpdates() {
       {/* HEADER */}
       <div className="max-w-7xl mx-auto px-6 mb-16 relative">
         <h2 className="text-center text-4xl md:text-5xl font-semibold text-[#3D0F29]">
-          University Updates
+          {t.updates.heading}
         </h2>
 
         {/* VIEW ALL */}
@@ -49,9 +51,11 @@ export default function UniversityUpdates() {
           href="https://departments.ssus.ac.in/ssus/university-updates"
           target="_blank"
           rel="noopener noreferrer"
-          className="absolute right-6 top-1/2 -translate-y-1/2 hidden md:flex items-center gap-2 bg-black text-white px-5 py-2 rounded-lg text-sm font-medium hover:bg-[#3D0F29] transition"
+          className="absolute right-6 top-1/2 -translate-y-1/2 hidden md:flex items-center gap-2
+                     bg-black text-white px-5 py-2 rounded-lg text-sm font-medium
+                     hover:bg-[#3D0F29] transition"
         >
-          View All <ArrowUpRight size={16} />
+          {t.updates.viewAll} <ArrowUpRight size={16} />
         </a>
       </div>
 
@@ -83,19 +87,12 @@ export default function UniversityUpdates() {
                     href={item.file_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="
-                      flex items-center gap-2
-                      border border-black
-                      px-4 py-2
-                      rounded-lg
-                      text-sm font-semibold
-                      text-black
-                      bg-white
-                      hover:bg-black hover:text-white
-                      transition
-                    "
+                    className="flex items-center gap-2 border border-black
+                               px-4 py-2 rounded-lg text-sm font-semibold
+                               text-black bg-white
+                               hover:bg-black hover:text-white transition"
                   >
-                    View <ArrowUpRight size={14} />
+                    {t.updates.view} <ArrowUpRight size={14} />
                   </a>
                 )}
 
@@ -105,19 +102,12 @@ export default function UniversityUpdates() {
                     href={item.external_link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="
-                      flex items-center gap-2
-                      border border-black
-                      px-4 py-2
-                      rounded-lg
-                      text-sm font-semibold
-                      text-black
-                      bg-white
-                      hover:bg-black hover:text-white
-                      transition
-                    "
+                    className="flex items-center gap-2 border border-black
+                               px-4 py-2 rounded-lg text-sm font-semibold
+                               text-black bg-white
+                               hover:bg-black hover:text-white transition"
                   >
-                    Link <ArrowUpRight size={14} />
+                    {t.updates.link} <ArrowUpRight size={14} />
                   </a>
                 )}
               </div>
@@ -128,10 +118,12 @@ export default function UniversityUpdates() {
 
       {/* PAGINATION (UI ONLY) */}
       <div className="flex justify-center gap-6 mt-16">
-        <button className="w-10 h-10 rounded-full border flex items-center justify-center text-gray-400 hover:text-black hover:border-black transition">
+        <button className="w-10 h-10 rounded-full border flex items-center justify-center
+                           text-gray-400 hover:text-black hover:border-black transition">
           <ArrowLeft size={18} />
         </button>
-        <button className="w-10 h-10 rounded-full border flex items-center justify-center text-black border-black transition">
+        <button className="w-10 h-10 rounded-full border flex items-center justify-center
+                           text-black border-black transition">
           <ArrowRight size={18} />
         </button>
       </div>

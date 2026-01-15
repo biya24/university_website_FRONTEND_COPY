@@ -109,34 +109,60 @@ export default async function DrupalPage({ params }: PageProps) {
   ) ?? "";
 
   return (
-    <main className="min-h-screen bg-slate-50 text-slate-900">
+    <main className="min-h-screen text-slate-900 bg-[#fdfcf8]">
+  
+
+
       {/* HERO */}
-      <section className="bg-gradient-to-r from-black to-[#711F45] text-white">
+      
+      <section
+  className="relative overflow-hidden text-white shadow-[0_6px_30px_rgba(0,0,0,0.35)]
+             bg-[linear-gradient(90deg,#1a0b12,#711F45,#5a1635)] bg-[length:200%_200%] animate-heroGradient"
+>
+
         <div className="mx-auto max-w-6xl px-6 py-12">
           <div className="text-sm text-white/70">
             Home <span className="mx-2">/</span> {title}
           </div>
-          <h1 className="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight">
-            {title}
-          </h1>
+          <h1 className="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight
+                   drop-shadow-[0_2px_6px_rgba(0,0,0,0.4)]">
+      {title}
+    </h1>
+
+
         </div>
+        
       </section>
 
       {/* CONTENT */}
-      <section className="mx-auto max-w-6xl px-6 py-10">
-        <article className="rounded-2xl bg-white border border-slate-200 shadow-sm overflow-hidden">
-          <div className="p-6 md:p-10">
-            <div
-              className="drupal-body prose prose-lg max-w-none"
-              dangerouslySetInnerHTML={{ __html: bodyHtml }}
-            />
-          </div>
-        </article>
+      <section className="mx-auto max-w-6xl px-6 py-16">
+
+      <article
+  className="relative overflow-hidden rounded-3xl border border-slate-200 shadow-[0_20px_50px_rgba(0,0,0,0.12)]"
+  style={{
+    backgroundImage: "url('/images/bg_4.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
+  {/* subtle inner paper overlay */}
+  <div className="absolute inset-0 bg-white/70 backdrop-blur-[1px]" />
+
+  {/* content */}
+  <div className="relative z-10 p-6 md:p-10">
+    <div
+      className="drupal-body prose prose-lg max-w-none"
+      dangerouslySetInnerHTML={{ __html: bodyHtml }}
+    />
+  </div>
+</article>
+
       </section>
 
       {/* Drupal HTML Styling */}
       <style>{`
-        .drupal-body { text-align: justify; text-justify: inter-word; }
+        .drupal-body { text-align: justify; text-justify: inter-word; background: transparent; line-height: 1.75;
+  letter-spacing: 0.01em;}
         .drupal-body h1 { font-weight: 900; font-size: 2rem; line-height: 1.2; margin-top: 1.6rem; margin-bottom: 0.8rem; color: #0f172a; border-bottom: 3px solid #f59e0b; padding-bottom: 0.4rem; }
         .drupal-body h2 { font-weight: 900; letter-spacing: -0.01em; margin-top: 1.8rem; margin-bottom: 0.65rem; border-left: 6px solid #f59e0b; padding-left: 0.85rem; }
         .drupal-body h3 { font-weight: 800; margin-top: 1.2rem; margin-bottom: 0.4rem; }

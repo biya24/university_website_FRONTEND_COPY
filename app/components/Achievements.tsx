@@ -2,20 +2,27 @@
 
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
+import { useTranslation } from "@/i18n/useTranslation";
 
 const achievements = [
   {
-    id: 1,
-    title: "Gandhi Darshan Project",
-    description: "The University is the Nodal Agency for implementing the Gandhi Darshan Program to mobilize Gandhian values in the State of Kerala at the School level under a State Project.",
+    key: "gandhi",
     image: "/images/achievements/gandhi.png",
   },
   {
-    id: 2,
-    title: "100-Hour Documentation of the Samaveda",
-    description: "The University is the Nodal Agency for the documentation of Samaveda traditions and preservation of intangible cultural heritage.",
+    key: "samaveda",
     image: "/images/achievements/award.jpg",
   },
+];
+
+const accreditations = [
+  { name: "UGC", logo: "/images/accreditations/ugc.png", url: "https://www.ugc.gov.in" },
+  { name: "NAAC", logo: "/images/accreditations/naac.png", url: "https://www.naac.gov.in" },
+  { name: "KHEC", logo: "/images/accreditations/khec.png", url: "https://khec.kerala.gov.in" },
+  { name: "NIRF", logo: "/images/accreditations/nirf.png", url: "https://www.nirfindia.org" },
+  { name: "ICSSR", logo: "/images/accreditations/icssr.png", url: "https://icssr.org" },
+  { name: "ICHR", logo: "/images/accreditations/ichr.png", url: "https://ichr.ac.in" },
+  { name: "SWAYAM", logo: "/images/accreditations/swayam.png", url: "https://swayam.gov.in" },
 ];
 
 const naacLogos = Array.from({ length: 8 });
@@ -25,6 +32,7 @@ export default function AchievementsAwards() {
   const [isMobile, setIsMobile] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const checkMobile = () => {
@@ -53,10 +61,10 @@ export default function AchievementsAwards() {
         {/* HEADER */}
         <div className="text-center">
           <h2 className="text-2xl md:text-[48px] font-bold text-[#3D0F29]">
-           Achievements & Awards
+          {t.achievements.heading}
           </h2>
           <p className="mt-3 md:mt-4 max-w-3xl mx-auto text-gray-600 text-sm md:text-lg px-2 md:px-0">
-            Celebrating excellence in academics, research, innovation, and student success.
+          {t.achievements.subtitle}
           </p>
         </div>
 
@@ -89,22 +97,23 @@ export default function AchievementsAwards() {
                   style={{ transform: `translateX(-${currentSlide * 100}%)` }}
                 >
                   {achievements.map((item) => (
-                    <div key={item.id} className="w-full flex-shrink-0 px-2">
+                    <div key={item.key} className="w-full flex-shrink-0 px-2">
                       <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
                         <div className="w-full h-48 relative">
-                          <Image
+                        <Image
                             src={item.image}
-                            alt={item.title}
+                            alt={t.achievements.items[item.key].title}
                             fill
                             className="object-cover"
                           />
+
                         </div>
                         <div className="p-5">
                           <h3 className="text-lg font-semibold text-black mb-2">
-                            {item.title}
+                          {t.achievements.items[item.key].title}
                           </h3>
                           <p className="text-gray-600 text-sm leading-relaxed">
-                            {item.description}
+                          {t.achievements.items[item.key].desc}
                           </p>
                         </div>
                       </div>
@@ -150,24 +159,25 @@ export default function AchievementsAwards() {
               >
                 {duplicatedAchievements.map((item, index) => (
                   <div 
-                    key={`${item.id}-${index}`} 
+                    key={`${item.key}-${index}`} 
                     className="flex gap-6 min-w-[900px] flex-shrink-0"
                   >
                     <div className="w-[320px] h-[240px] rounded-2xl overflow-hidden relative">
-                      <Image
+                    <Image
                         src={item.image}
-                        alt={item.title}
+                        alt={t.achievements.items[item.key].title}
                         fill
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, 320px"
                       />
+
                     </div>
                     <div className="bg-white rounded-2xl p-8 w-[620px] shadow-sm flex flex-col justify-center">
                       <h3 className="text-xl font-semibold text-black mb-3">
-                        {item.title}
+                      {t.achievements.items[item.key].title}
                       </h3>
                       <p className="text-gray-600 leading-relaxed">
-                        {item.description}
+                      {t.achievements.items[item.key].desc}
                       </p>
                     </div>
                   </div>
@@ -183,28 +193,34 @@ export default function AchievementsAwards() {
 
         {/* NAAC STRIP */}
         <div className="mt-12 md:mt-24">
-          {/* <h3 className="text-center text-lg font-semibold text-gray-700 mb-6">
-            Accredited by NAAC
-          </h3> */}
-          <div className="grid grid-cols-4 sm:grid-cols-6 md:flex md:justify-between gap-4 md:gap-6">
-            {naacLogos.map((_, index) => (
-              <div key={index} className="flex flex-col items-center">
-                <div className="w-10 h-10 md:w-14 md:h-14 relative">
-                  <Image 
-                    src="/images/naac.png" 
-                    alt="NAAC" 
-                    fill
-                    className="object-contain opacity-80"
-                    sizes="(max-width: 768px) 40px, 56px"
-                  />
-                </div>
-                <span className="text-xs md:text-sm font-medium text-[#2B3A55] mt-1">
-                  NAAC
-                </span>
-              </div>
-            ))}
-          </div>
+  <div className="grid grid-cols-4 sm:grid-cols-6 md:flex md:justify-between gap-4 md:gap-6">
+    {accreditations.map((item, index) => (
+      <a
+        key={index}
+        href={item.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={item.name}
+        className="flex flex-col items-center group"
+      >
+        <div className="w-10 h-10 md:w-14 md:h-14 relative">
+          <Image
+            src={item.logo}
+            alt={item.name}
+            fill
+            className="object-contain opacity-70 group-hover:opacity-100 transition"
+            sizes="(max-width: 768px) 40px, 56px"
+          />
         </div>
+        <span className="text-xs md:text-sm font-medium text-[#2B3A55] mt-1 group-hover:underline">
+          {item.name}
+        </span>
+      </a>
+    ))}
+  </div>
+</div>
+
+
       </div>
     </section>
   );

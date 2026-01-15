@@ -37,18 +37,18 @@ export default function HeroBanner() {
         <div className="mt-6 flex justify-start gap-4">
           {/* Explore Campuses */}
           <Link
-            href="/academics/regional-campuses"
+            href="/academics/regional-campuses" lang={language}
             className="bg-white text-[#013E7F] px-6 py-3 rounded-lg font-semibold inline-block"
           >
-            Explore Campuses
+            {t.home.bannerButton}
           </Link>
 
           {/* Admission 2026 */}
           <Link
-            href="/admission"
+            href="/admission" lang={language}
             className="border border-white px-6 py-3 rounded-lg inline-block"
           >
-            Admission 2026
+            {t.admission}
           </Link>
         </div>
       </div>

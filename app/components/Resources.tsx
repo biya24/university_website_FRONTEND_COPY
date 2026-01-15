@@ -1,61 +1,77 @@
 "use client";
+
 import Link from "next/link";
+import { useTranslation } from "@/i18n/useTranslation";
+
+/* ---------------- DATA ---------------- */
 
 const facilities = [
   {
-    title: "Research Labs",
+    key: "research",
     image: "/facilities/research.webp",
     icon: "/icons/lab.svg",
     href: "/research-labs",
   },
   {
-    title: "IT Services",
+    key: "it",
     image: "/facilities/it.webp",
     icon: "/icons/it.svg",
     href: "/it-services",
   },
   {
-    title: "Transportation",
+    key: "transport",
     image: "/facilities/transport.webp",
     icon: "/icons/transport.svg",
     href: "/transportation",
   },
   {
-    title: "Hostels",
+    key: "hostel",
     image: "/facilities/hostel.webp",
     icon: "/icons/hostel.svg",
     href: "/hostels",
   },
   {
-    title: "Sports",
+    key: "sports",
     image: "/facilities/sports.webp",
     icon: "/icons/sports.svg",
     href: "/sports",
   },
   {
-    title: "Library",
+    key: "library",
     image: "/facilities/library.webp",
     icon: "/icons/library.svg",
     href: "/library",
   },
 ];
 
+/* ---------------- COMPONENT ---------------- */
+
 export default function ResourcesFacilities() {
+  const { t } = useTranslation();
+
   return (
     <section className="bg-[#F7F5F4] py-20">
+      {/* HEADING */}
       <div className="text-center mb-14 px-4">
         <h2 className="text-4xl md:text-[52px] font-semibold text-[#3D0F29]">
-          Resources & Facilities
+          {t.facilities.heading}
         </h2>
         <p className="mt-4 text-lg text-gray-600">
-          Smart infrastructure built for smarter learning.
+          {t.facilities.subtitle}
         </p>
       </div>
 
+      {/* CARDS */}
       <div className="mx-auto max-w-[1512px] px-4 sm:px-6 xl:px-[60px]">
         <div className="flex gap-[8px] overflow-x-auto xl:overflow-visible snap-x snap-mandatory pb-2">
-          {facilities.map((item, index) => (
-            <FacilityCard key={index} {...item} />
+          {facilities.map((item) => (
+            <FacilityCard
+              key={item.key}
+              title={t.facilities.items[item.key]}
+              image={item.image}
+              icon={item.icon}
+              href={item.href}
+            />
           ))}
         </div>
       </div>

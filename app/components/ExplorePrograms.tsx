@@ -3,35 +3,21 @@
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
+import { useTranslation } from "@/i18n/useTranslation";
 
 export default function ProgrammesSection() {
+ 
+  const { t, language } = useTranslation();
+  const { setLanguage } = useLanguage();
+
   const programmes = [
-    {
-      title: "PhD",
-      href: "/phd-programmes",
-    },
-    {
-      title: "Post Graduate",
-      href: "/pg-programmes",
-    },
-    {
-      title: "Under Graduate",
-      href: "/ug-programmes",
-    },
-   
-    {
-      title: "Diploma",
-      href: "/diploma-programmes",
-    },
-    
-    {
-      title: "Certificate Programmes",
-      href: "/certificate_programmes",
-    },
-    {
-      title: "Online Courses",
-      href: "/academics/scol",
-    },
+    { title: t.programmes.list.phd, href: "/phd-programmes" },
+    { title: t.programmes.list.pg, href: "/pg-programmes" },
+    { title: t.programmes.list.ug, href: "/ug-programmes" },
+    { title: t.programmes.list.diploma, href: "/diploma-programmes" },
+    { title: t.programmes.list.certificate, href: "/certificate_programmes" },
+    { title: t.programmes.list.online, href: "/academics/scol" },
   ];
 
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -41,24 +27,25 @@ export default function ProgrammesSection() {
       {/* HEADING */}
       <div className="max-w-full px-6 md:px-12 lg:px-20 mx-auto mb-12">
         <h2
+          lang={language}
           className="text-center text-3xl md:text-5xl font-bold mb-3"
           style={{ color: "#3D0F29" }}
         >
-          Explore Our Programmes
+          {t.programmes.heading}
         </h2>
 
         <p
+          lang={language}
           className="text-center text-lg md:text-xl"
           style={{ color: "#6B7280" }}
         >
-          Choose from diverse academic programs tailored to shape your future.
+          {t.programmes.subtitle}
         </p>
       </div>
 
       {/* PROGRAMMES LIST */}
       <div className="space-y-0">
         {programmes.map((item, idx) => {
-          const number = (idx + 1).toString().padStart(2, "0");
           const isHovered = idx === hoveredIndex;
 
           return (
@@ -74,17 +61,12 @@ export default function ProgrammesSection() {
                 <div className="w-full px-4 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
                   <div className="flex items-center justify-between py-6">
                     <div className="flex items-center gap-4 md:gap-6">
-                      {/* NUMBER */}
-                      <span
-                        className="text-lg md:text-xl font-medium"
-                        style={{ color: "#9CA3AF" }}
-                      >
-                        {/* {number}. */}
-                        <span className="text-gray-400 text-[28px] leading-none mr-2">•</span>
+                      <span className="text-gray-400 text-[28px] leading-none mr-2">
+                        •
                       </span>
 
-                      {/* TITLE */}
                       <span
+                        lang={language}
                         className={`
                           text-xl md:text-2xl
                           ${isHovered ? "font-bold" : "font-semibold"}
@@ -97,7 +79,6 @@ export default function ProgrammesSection() {
                       </span>
                     </div>
 
-                    {/* ARROW */}
                     <div
                       className={`
                         w-10 h-10 md:w-11 md:h-11 rounded-full flex items-center justify-center
