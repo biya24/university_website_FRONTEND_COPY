@@ -5,6 +5,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { useTranslation } from "@/i18n/useTranslation";
+import { getLocalizedPath } from "@/lib/getLocalizedPath";
+
 
 export default function ProgrammesSection() {
  
@@ -12,12 +14,30 @@ export default function ProgrammesSection() {
   const { setLanguage } = useLanguage();
 
   const programmes = [
-    { title: t.programmes.list.phd, href: "/phd-programmes" },
-    { title: t.programmes.list.pg, href: "/pg-programmes" },
-    { title: t.programmes.list.ug, href: "/ug-programmes" },
-    { title: t.programmes.list.diploma, href: "/diploma-programmes" },
-    { title: t.programmes.list.certificate, href: "/certificate_programmes" },
-    { title: t.programmes.list.online, href: "/academics/scol" },
+    {
+      title: t.programmes.list.phd,
+      href: getLocalizedPath("/phd-programmes", language),
+    },
+    {
+      title: t.programmes.list.pg,
+      href: getLocalizedPath("/pg-programmes", language),
+    },
+    {
+      title: t.programmes.list.ug,
+      href: getLocalizedPath("/ug-programmes", language),
+    },
+    {
+      title: t.programmes.list.diploma,
+      href: getLocalizedPath("/diploma-programmes", language),
+    },
+    {
+      title: t.programmes.list.certificate,
+      href: getLocalizedPath("/certificate_programmes", language),
+    },
+    {
+      title: t.programmes.list.online,
+      href: getLocalizedPath("/academics/scol", language),
+    },
   ];
 
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);

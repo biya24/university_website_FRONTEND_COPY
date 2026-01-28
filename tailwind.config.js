@@ -18,6 +18,11 @@ module.exports = {
         fontFamily: {
           malayalam: ["var(--font-malayalam)", "Mandharam", "Noto Sans Malayalam", "sans-serif"],
         },
+        colors: {
+          brand: {
+            primary: "#023e8a",
+          },
+        },
       },
     },
   };

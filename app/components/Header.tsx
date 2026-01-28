@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { getLocalizedPath } from "@/lib/getLocalizedPath";
 import {
   Phone,
   Mail,
@@ -90,7 +91,9 @@ export default function UniversityHeader() {
   return (
     <>
       {/* ================= DESKTOP HEADER ================= */}
-      <div className="w-full bg-white h-24 border-b shadow-sm px-10 flex items-center justify-between hidden md:flex">
+      <div className="w-full bg-white border-b shadow-sm px-10 py-3
+                flex items-center justify-between hidden md:flex
+                min-h-[96px]">
         <Link href="/">
           <Image
             src="/logo_new.png"
@@ -148,11 +151,12 @@ export default function UniversityHeader() {
        
 
           <Link
-              href={NAAC_URL}
+              href={getLocalizedPath(NAAC_URL, language)}
+              lang={language}
               className="px-4 py-2 border rounded-xl text-sm hover:bg-gray-100 transition"
             >
               {t.admission}
-            </Link>
+          </Link>
 
 
             {/* <Link
@@ -213,15 +217,19 @@ export default function UniversityHeader() {
 <div className="w-full bg-white border-b shadow-sm md:hidden">
 
 {/* ROW 1 — LOGO + MENU */}
-<div className="h-20 px-4 flex items-center justify-between">
+<div className="px-4 py-3 flex items-center justify-between min-h-[80px] overflow-x-hidden">
+
+
   <Link href="/">
-    <Image
-      src="/logo_new.png"
-      alt="Logo"
-      width={250}
-      height={70}
-      priority
-    />
+  <Image
+  src="/logo_new.png"
+  alt="Logo"
+  width={250}
+  height={70}
+  priority
+  className="max-w-[70%] h-auto"
+/>
+
   </Link>
  
 
@@ -234,13 +242,15 @@ export default function UniversityHeader() {
 </div> */}
 
 {/* ROW 2 — QUICK ACTIONS */}
-<div className="h-12 px-4 flex items-center justify-between
-                border-t border-gray-200 bg-white text-sm">
+<div className="px-4 py-2 grid grid-cols-[1fr_auto_auto]
+                items-center h-12 gap-3 overflow-hidden">
 
 <Link
-  href={NAAC_URL}
-  className="font-medium text-gray-700 hover:text-[#6b174e]"
->
+    href={getLocalizedPath(NAAC_URL, language)}
+    lang={language}
+      
+      className="font-medium text-gray-700 hover:text-[#6b174e]"
+    >
 {t.admission}
 </Link>
 
@@ -260,13 +270,14 @@ export default function UniversityHeader() {
     <ChevronDown size={14} />
   </button> */}
 
-  <button
-              onClick={() => setLanguage(language === "en" ? "ml" : "en")}
-              className="flex items-center gap-1 text-gray-700 hover:text-[#6b174e]"
-            >
-              {t.language}
-              <ChevronDown size={14} />
-            </button>
+<button
+  onClick={() => setLanguage(language === "en" ? "ml" : "en")}
+  className="flex items-center gap-1 h-full leading-none
+             text-gray-700 hover:text-[#6b174e]"
+>
+  <span className="flex items-center">{t.language}</span>
+  <ChevronDown size={14} />
+</button>
 
   <button
     onClick={() => setSearchOpen(true)}

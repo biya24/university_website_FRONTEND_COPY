@@ -109,41 +109,43 @@ export default async function DrupalPage({ params }: PageProps) {
   ) ?? "";
 
   return (
-    <main className="min-h-screen text-slate-900 bg-[#fdfcf8]">
+    <main className="min-h-screen bg-[var(--color-page-bg)] text-[var(--color-ink)]">
   
 
 
       {/* HERO */}
       
       <section
-  className="relative overflow-hidden text-white shadow-[0_6px_30px_rgba(0,0,0,0.35)]
-             bg-[linear-gradient(90deg,#1a0b12,#711F45,#5a1635)] bg-[length:200%_200%] animate-heroGradient"
+  className="relative overflow-hidden text-white
+             shadow-[0_6px_30px_rgba(0,0,0,0.35)]
+             bg-[var(--color-brand-secondary)]"
 >
+  <div className="mx-auto max-w-6xl px-6 py-12">
+    <div className="text-sm text-white/80">
+      Home <span className="mx-2">/</span> {title}
+    </div>
 
-        <div className="mx-auto max-w-6xl px-6 py-12">
-          <div className="text-sm text-white/70">
-            Home <span className="mx-2">/</span> {title}
-          </div>
-          <h1 className="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight
-                   drop-shadow-[0_2px_6px_rgba(0,0,0,0.4)]">
+    <h1
+      className="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight
+                 drop-shadow-[0_2px_6px_rgba(0,0,0,0.4)]"
+    >
       {title}
     </h1>
+  </div>
+</section>
 
 
-        </div>
-        
-      </section>
 
       {/* CONTENT */}
-      <section className="mx-auto max-w-6xl px-6 py-16">
+      <section className="bg-[var(--color-page-bg)]">
+      <div className="mx-auto max-w-6xl px-6 py-16">
 
       <article
-  className="relative overflow-hidden rounded-3xl border border-slate-200 shadow-[0_20px_50px_rgba(0,0,0,0.12)]"
-  style={{
-    backgroundImage: "url('/images/bg_4.jpg')",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  }}
+  className="relative overflow-hidden rounded-3xl
+             border border-slate-200
+             shadow-[0_20px_50px_rgba(0,0,0,0.12)]
+             bg-[var(--color-card-bg)]
+             text-[var(--color-ink)]"
 >
   {/* subtle inner paper overlay */}
   <div className="absolute inset-0 bg-white/70 backdrop-blur-[1px]" />
@@ -156,7 +158,7 @@ export default async function DrupalPage({ params }: PageProps) {
     />
   </div>
 </article>
-
+</div>
       </section>
 
       {/* Drupal HTML Styling */}

@@ -59,7 +59,7 @@ export default function UniversityFooter() {
   };
 
   return (
-    <footer className="bg-black text-white overflow-x-hidden">
+    <footer className="bg-[var(--color-brand-primary)] text-white overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Dynamic Footer Menus */}

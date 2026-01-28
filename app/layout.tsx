@@ -7,6 +7,7 @@ import UniversityFooter from "./components/Footer";
 import { Providers } from "./providers"; // Import the provider
 import SocialMediaGlobe from './components/SocialMediaIcons';
 import AccessibilityButton from "./components/AccessibilityButton"
+import BrandColorSelector from "./components/BrandColorSelector"
 import { LanguageProvider } from "@/context/LanguageContext";
 import { SearchProvider } from "@/context/SearchContext";
 import HtmlLang from "./HtmlLang";
@@ -27,24 +28,21 @@ export default function RootLayout({ children }) {
         <LanguageProvider>
         <HtmlLang /> 
         <SearchProvider>
-          {/* FIXED HEADER */}
-          <header className="fixed top-0 left-0 w-full bg-white z-[2000] shadow-sm">
-            <Header />
-          </header>
+          {/* FIXED TOP WRAPPER */}
+<div className="fixed top-0 left-0 w-full z-[2000] bg-white shadow-sm">
+  <Header />
+  <NotificationBar />
+</div>
 
-          {/* FIXED NOTIFICATION BAR UNDER HEADER */}
-          <div className="fixed top-[128px] md:top-24 left-0 w-full z-[1500]">
-            <NotificationBar />
-          </div>
 
           {/* PAGE CONTENT OFFSET BELOW HEADER + BAR */}
-          <main className="pt-[160px] md:pt-[104px] min-h-screen">
+          <main className="pt-[var(--top-offset)] min-h-screen">
 
             {children}
             <SocialMediaGlobe />
             <AccessibilityButton />
           </main>
-
+          <BrandColorSelector />
           {/* FOOTER */}
           <UniversityFooter />
           </SearchProvider>

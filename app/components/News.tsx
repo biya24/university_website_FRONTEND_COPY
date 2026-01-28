@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
+import { useTranslation } from "@/i18n/useTranslation";
 
 /* ---------------- TYPES ---------------- */
 
@@ -22,6 +23,7 @@ const isMalayalam = (text: string) => /[\u0D00-\u0D7F]/.test(text);
 
 export default function CampusNews() {
   const [news, setNews] = useState<NewsItem[]>([]);
+  const { t } = useTranslation();
 
   useEffect(() => {
     fetch("/api/news") // ✅ proxy route
@@ -41,7 +43,7 @@ export default function CampusNews() {
       {/* ---------- HEADER ---------- */}
       <div className="max-w-[1512px] mx-auto px-4 sm:px-6 xl:px-[60px] flex items-center justify-between mb-12">
         <h2 className="text-4xl md:text-5xl font-semibold text-[#3D0F29]">
-          Campus News
+        {t.campusNews.title}
         </h2>
 
         {/* ✅ VIEW ALL → EXTERNAL URL */}
@@ -51,7 +53,7 @@ export default function CampusNews() {
           rel="noopener noreferrer"
           className="flex items-center gap-2 border border-black rounded-lg px-4 py-2 text-sm font-medium hover:bg-black hover:text-white transition"
         >
-          View All <ArrowUpRight size={16} />
+         {t.campusNews.viewAll} <ArrowUpRight size={16} />
         </a>
       </div>
 

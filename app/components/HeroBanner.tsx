@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useTranslations } from "@/lib/useTranslations";
+import { getLocalizedPath } from "@/lib/getLocalizedPath";
 
 export default function HeroBanner() {
   const { t, language } = useTranslations();
@@ -37,16 +38,17 @@ export default function HeroBanner() {
         <div className="mt-6 flex justify-start gap-4">
           {/* Explore Campuses */}
           <Link
-            href="/academics/regional-campuses" lang={language}
-            className="bg-white text-[#013E7F] px-6 py-3 rounded-lg font-semibold inline-block"
+            href={getLocalizedPath("/academics/regional-campuses", language)}
+            lang={language}
+            className="bg-white text-[#013E7F] px-6 py-3 rounded-lg font-semibold"
           >
             {t.home.bannerButton}
           </Link>
 
-          {/* Admission 2026 */}
           <Link
-            href="/admission" lang={language}
-            className="border border-white px-6 py-3 rounded-lg inline-block"
+            href={getLocalizedPath("/admission", language)}
+            lang={language}
+            className="border border-white px-6 py-3 rounded-lg"
           >
             {t.admission}
           </Link>

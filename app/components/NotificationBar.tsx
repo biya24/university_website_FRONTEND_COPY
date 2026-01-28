@@ -31,9 +31,9 @@ export default function NotificationBar() {
   if (notices.length === 0) return null;
 
   return (
-    <div className="w-full bg-[#2b2b2b] text-white h-10 flex items-center overflow-hidden whitespace-nowrap relative z-[2000]">
+    <div className="w-full bg-[var(--color-brand-primary)] text-white h-10 flex items-center overflow-hidden whitespace-nowrap relative z-[2000]">
       {/* SCROLLING STRIP */}
-      <div className="flex items-center animate-scroll">
+      <div className="flex items-center animate-scroll bg-brand-primary min-w-max">
         {[...notices, ...notices].map((item, index) => (
           <div
             key={index}

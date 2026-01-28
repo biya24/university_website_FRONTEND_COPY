@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useTranslation } from "@/i18n/useTranslation";
+
 
 /* ---------- TYPES ---------- */
 interface EventItem {
@@ -81,6 +83,7 @@ const SkeletonCard = () => (
 
 /* ---------- COMPONENT ---------- */
 export default function CampusEvents() {
+  const { t } = useTranslation();
   const [allEvents, setAllEvents] = useState<EventItem[]>([]);
   const [activeTab, setActiveTab] = useState<"upcoming" | "past">("upcoming");
   const [loading, setLoading] = useState(true);
@@ -191,7 +194,7 @@ export default function CampusEvents() {
         {/* HEADER */}
         <div className="flex items-center justify-between mb-10">
           <h2 className="text-[48px] font-bold text-[#4A0E23]">
-            Campus Events
+          {t.campusEvents.title}
           </h2>
 
           <a
@@ -200,7 +203,7 @@ export default function CampusEvents() {
             rel="noopener noreferrer"
             className="border border-black px-5 py-2 rounded-lg text-sm hover:bg-black hover:text-white transition"
           >
-            View All ↗
+            {t.campusEvents.viewAll} ↗
           </a>
         </div>
 
@@ -216,7 +219,9 @@ export default function CampusEvents() {
                   : "border border-gray-300"
               }`}
             >
-              {tab === "upcoming" ? "Upcoming Events" : "Past Events"}
+              {tab === "upcoming"
+  ? t.campusEvents.upcoming
+  : t.campusEvents.past}
             </button>
           ))}
         </div>
@@ -233,7 +238,7 @@ export default function CampusEvents() {
         {/* EMPTY */}
         {!loading && paginatedEvents.length === 0 && (
           <div className="text-center py-20 text-gray-500 text-lg">
-            No events found.
+            {t.campusEvents.empty}
           </div>
         )}
 

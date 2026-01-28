@@ -226,6 +226,17 @@ const en = {
       copyright:
         "© {{year}} Sree Sankaracharya University Of Sanskrit. All Rights Reserved.",
     },
+    campusNews: {
+      title: "Campus News",
+      viewAll: "View All",
+    },
+    campusEvents: {
+      title: "Campus Events",
+      viewAll: "View All",
+      upcoming: "Upcoming Events",
+      past: "Past Events",
+      empty: "No events found.",
+    },
     
   };
   

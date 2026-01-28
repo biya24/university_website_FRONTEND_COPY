@@ -1,5 +1,13 @@
 "use client";
-import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
+import { useRouter, usePathname } from "next/navigation";
 
 type Language = "en" | "ml";
 
@@ -10,28 +18,36 @@ interface LanguageContextType {
   isLoading: boolean;
 }
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+const LanguageContext =
+  createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguageState] = useState<Language>("en");
+  const router = useRouter();
+  const pathname = usePathname();
+
+ 
+  const [language, setLanguageState] = useState<Language>(() => {
+    if (typeof window === "undefined") return "en";
+    return (localStorage.getItem("language") as Language) || "en";
+  });
+  
   const [translations, setTranslations] = useState<Record<string, string>>({});
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  // Load saved language
-  useEffect(() => {
-    const savedLang = (localStorage.getItem("language") as Language) || "en";
-    setLanguageState(savedLang);
-  }, []);
+  /* ---------- LOAD SAVED LANGUAGE ---------- */
 
-  // Fetch translations from backend
+
+  /* ---------- FETCH TRANSLATIONS ---------- */
   useEffect(() => {
     const fetchTranslations = async () => {
       setIsLoading(true);
       try {
-        const res = await fetch(`http://10.10.100.40:3001/api/translations/${language}`);
-        if (!res.ok) throw new Error("Failed to fetch translations");
+        const res = await fetch(
+          `http://10.10.100.40:3001/api/translations/${language}`,
+          { cache: "no-store" }
+        );
         const data = await res.json();
-        setTranslations(data);
+        setTranslations(data || {});
       } catch (err) {
         console.error("Translation fetch error:", err);
         setTranslations({});
@@ -43,9 +59,20 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     fetchTranslations();
   }, [language]);
 
+  /* ---------- LANGUAGE SWITCH (🔥 IMPORTANT FIX) ---------- */
   const setLanguage = (lang: Language) => {
+    if (lang === language) return;
+
     setLanguageState(lang);
     localStorage.setItem("language", lang);
+
+    // Remove existing /ml
+    const cleanPath = pathname.replace(/^\/ml/, "");
+
+    // Add /ml only for Malayalam
+    const newPath = lang === "ml" ? `/ml${cleanPath}` : cleanPath;
+
+    router.replace(newPath); // 🚀 FORCE SERVER PAGE RELOAD
   };
 
   const t = (key: string) => translations[key] || key;
@@ -59,6 +86,9 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
 
 export const useLanguage = () => {
   const ctx = useContext(LanguageContext);
-  if (!ctx) throw new Error("useLanguage must be used inside LanguageProvider");
+  if (!ctx) {
+    throw new Error("useLanguage must be used inside LanguageProvider");
+  }
   return ctx;
 };
+

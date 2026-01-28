@@ -3,25 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
 import { useTranslation } from "@/i18n/useTranslation";
+import { getLocalizedPath } from "@/lib/getLocalizedPath";
 
-const services = [
-  { key: "admission", icon: "/icons/services/admission.svg", href: "/admission" },
-  { key: "programmes", icon: "/icons/services/programmes.svg", href: "/academics/programmes" },
-  { key: "departments", icon: "/icons/services/departments.svg", href: "/academics/departments" },
-  { key: "studentPortal", icon: "/icons/services/student.svg", href: "student-fyugp/fyugp-stud-login" },
-  { key: "certificate", icon: "/icons/services/certificate.svg", href: "https://certificate.ssus.ac.in/" },
-  { key: "library", icon: "/icons/services/library.svg", href: "https://library.ssus.ac.in/" },
-  { key: "onlineLearning", icon: "/icons/services/online-learning.svg", href: "/academics/scol" },
-  { key: "lms", icon: "/icons/services/lms.svg", href: "https://lms.ssus.ac.in/" },
-  { key: "faculty", icon: "/icons/services/faculty.svg", href: "https://faculty.ssus.ac.in/" },
-  { key: "departmentLogin", icon: "/icons/services/department.svg", href: "https://dept.ssus.ac.in/" },
-  { key: "iqac", icon: "/icons/services/iqac.svg", href: "/iqac" },
-  { key: "alumni", icon: "/icons/services/alumni.svg", href: "/alumni" },
-  { key: "press", icon: "/icons/services/press.svg", href: "https://departments.ssus.ac.in/ssus/news" },
-  { key: "fmts", icon: "/icons/services/fmts.svg", href: "https://fmts.ssus.ac.in" },
-  { key: "rti", icon: "/icons/services/rti.svg", href: "https://fmts.ssus.ac.in/rti" },
-];
- 
   
 
 
@@ -29,6 +12,83 @@ export default function ServicesSection() {
 
   const { t, language } = useTranslation();
   const { setLanguage } = useLanguage();
+  const services = [
+    {
+      key: "admission",
+      icon: "/icons/services/admission.svg",
+      href: getLocalizedPath("/admission", language),
+    },
+    {
+      key: "programmes",
+      icon: "/icons/services/programmes.svg",
+      href: getLocalizedPath("/academics/programmes", language),
+    },
+    {
+      key: "departments",
+      icon: "/icons/services/departments.svg",
+      href: getLocalizedPath("/academics/departments", language),
+    },
+    {
+      key: "studentPortal",
+      icon: "/icons/services/student.svg",
+      href: getLocalizedPath("/student-fyugp/fyugp-stud-login", language),
+    },
+    {
+      key: "certificate",
+      icon: "/icons/services/certificate.svg",
+      href: "https://certificate.ssus.ac.in/",
+    },
+    {
+      key: "library",
+      icon: "/icons/services/library.svg",
+      href: "https://library.ssus.ac.in/",
+    },
+    {
+      key: "onlineLearning",
+      icon: "/icons/services/online-learning.svg",
+      href: getLocalizedPath("/academics/scol", language),
+    },
+    {
+      key: "lms",
+      icon: "/icons/services/lms.svg",
+      href: "https://lms.ssus.ac.in/",
+    },
+    {
+      key: "faculty",
+      icon: "/icons/services/faculty.svg",
+      href: "https://faculty.ssus.ac.in/",
+    },
+    {
+      key: "departmentLogin",
+      icon: "/icons/services/department.svg",
+      href: "https://dept.ssus.ac.in/",
+    },
+    {
+      key: "iqac",
+      icon: "/icons/services/iqac.svg",
+      href: getLocalizedPath("/iqac", language),
+    },
+    {
+      key: "alumni",
+      icon: "/icons/services/alumni.svg",
+      href: getLocalizedPath("/alumni", language),
+    },
+    {
+      key: "press",
+      icon: "/icons/services/press.svg",
+      href: "https://departments.ssus.ac.in/ssus/news",
+    },
+    {
+      key: "fmts",
+      icon: "/icons/services/fmts.svg",
+      href: "https://fmts.ssus.ac.in",
+    },
+    {
+      key: "rti",
+      icon: "/icons/services/rti.svg",
+      href: "https://fmts.ssus.ac.in/rti",
+    },
+  ];
   return (
     <section className="w-full bg-white py-24">
       <h2 className="text-center text-4xl md:text-5xl font-bold mb-16 text-[#3D0F29]">

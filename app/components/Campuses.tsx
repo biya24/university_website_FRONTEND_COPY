@@ -3,9 +3,12 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { useTranslation } from "@/i18n/useTranslation";
+import { getLocalizedPath } from "@/lib/getLocalizedPath";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function CampusSection() {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
+  const { setLanguage } = useLanguage();
 
   return (
     <section className="bg-[#F5F6F7] pt-10 pb-20">
@@ -32,7 +35,7 @@ export default function CampusSection() {
       >
         {/* LEFT IMAGE */}
         <div className="relative rounded-2xl overflow-hidden md:row-span-2">
-          <img src="/campus/panmana.webp" className="w-full h-full object-cover" />
+          <img src="/campus/payyannur.webp" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-black/30" />
           <div className="absolute bottom-6 left-6 text-white">
             <h4 className="text-xl font-semibold">
@@ -54,7 +57,7 @@ export default function CampusSection() {
           </div>
 
           <div className="relative rounded-2xl overflow-hidden h-[330px]">
-            <img src="/campus/payyannur.webp" className="w-full h-full object-cover" />
+            <img src="/campus/panmana.webp" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-black/30" />
             <div className="absolute bottom-4 left-4 text-white">
               <h4 className="text-lg font-semibold">
@@ -94,7 +97,8 @@ export default function CampusSection() {
 
         {/* BUTTON */}
         <Link
-          href="/academics/regional-campuses"
+          href={getLocalizedPath("/academics/regional-campuses", language)}
+          lang={language}
           className="
             absolute bottom-6 right-6
             bg-white border border-gray-900
